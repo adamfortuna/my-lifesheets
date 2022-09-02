@@ -185,6 +185,27 @@
 			}
 		},
 		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"target_preset": "last",
+				"target": "last(entry)",
+				"set_pairs": [
+					{
+						"name": "end_time",
+						"value": "time($now)"
+					},
+					{
+						"name": "end_date",
+						"value": "date($now)"
+					}
+				],
+				"filter_pairs": [],
+				"visible": "",
+				"label": "End migraine"
+			}
+		},
+		{
 			"type": "expression",
 			"scope": "root",
 			"settings": {
