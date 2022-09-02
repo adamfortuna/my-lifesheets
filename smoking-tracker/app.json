@@ -2,18 +2,18 @@
 	"app": {
 		"name": "Smoking Tracker",
 		"slug": "smoking-tracker",
-		"entry_name": " cigarette",
-		"description": " cigarette tracker",
+		"entry_name": "cigarette",
+		"description": "Number of cigarettes smoked.",
 		"private": false,
-		"icon": "😀",
-		"color": "#0cc4e9",
+		"icon": "🚬😀",
+		"color": "#b39ec7",
 		"storageType": "",
 		"storage": "",
 		"charts_placement": "",
-		"entries_name": " cigarettes"
+		"entries_name": "cigarettes"
 	},
 	"temporal": {
-		"times": "",
+		"times": "yes",
 		"ranges": ""
 	},
 	"entry": [
@@ -47,26 +47,85 @@
 		{
 			"type": "property",
 			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"prefix": " at ",
+				"type": "time",
+				"default": "[time($startup, 'hours')]",
+				"format": "[time(time, 'minutes')]"
+			},
+			"name": "time"
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"visible": "false",
+				"expression": "datetime(date, time)"
+			},
+			"name": "date_time"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
 			"settings": {
 				"type": "text",
 				"appearance": "line",
 				"multiline": true
 			},
 			"name": "notes"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"default": "[1]",
+				"max": 10,
+				"number_style": "bar",
+				"bar_style": "discrete",
+				"icon": "🚬"
+			},
+			"name": "cigarettes"
+		},
+		{
+			"type": "action",
+			"scope": "entry",
+			"settings": {
+				"target_preset": "custom",
+				"target": "entry",
+				"set_pairs": [
+					{
+						"name": "cigarettes",
+						"value": "cigarettes+1"
+					},
+					{
+						"name": "time",
+						"value": "time($now)"
+					}
+				],
+				"filter_pairs": [],
+				"label": "Add cigarette",
+				"visible": "true"
+			}
 		}
 	],
 	"root": [
 		{
 			"type": "action",
-			"scope": "entry",
+			"scope": "root",
 			"settings": {
 				"visible": "edit",
-				"label": "➕ Add  cigarette",
 				"target": "add(entry)",
 				"target_preset": "new",
 				"appearance": "",
 				"set_pairs": [],
-				"filter_pairs": []
+				"filter_pairs": [],
+				"label": "➕ Add day"
 			}
 		}
 	],
