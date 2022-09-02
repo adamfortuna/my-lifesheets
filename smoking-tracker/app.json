@@ -134,6 +134,14 @@
 				"filter_pairs": [],
 				"label": "➕ Add day"
 			}
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"prefix": "Time since last cigarette ",
+				"expression": "duration($now - last(date_time))"
+			}
 		}
 	],
 	"charts": [
