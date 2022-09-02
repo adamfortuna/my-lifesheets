@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>Smoking Tracker:  cigarette tracker</title>
-	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">😀</text></svg>'>
+	<title>Smoking Tracker: cigarette tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🚬😀</text></svg>'>
 	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
 	<link rel="stylesheet" href="../style.css">
 	<style>
 		:root {
-			--accent-color: #0cc4e9;
-			--icon: "😀";
+			--accent-color: #b39ec7;
+			--icon: "🚬😀";
 		}
 	</style>
 	<link rel="manifest" href="manifest.json">
@@ -21,10 +21,10 @@
 <body mv-app="smoking-tracker" class="mv-autoedit" mv-storage="https://github.com/adamfortuna/my-lifesheets/smoking-tracker/data.json">
 	<header>
 		<h1>
-			<span class="app-icon">😀</span>
+			<span class="app-icon">🚬😀</span>
 			<span class="app-name">Smoking Tracker</span>
 		</h1>
-		<h2> cigarette tracker</h2>
+		<h2>Number of cigarettes smoked.</h2>
 		<div class="mv-bar mv-ui"></div>
 	</header>
 
@@ -33,15 +33,21 @@
 			
 		<a id=entries></a>
 			<div class="field-row">
-				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add  cigarette</button>
+				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add day</button>
 			</div>
 		<section mv-list="entry">
 			<article mv-list-item class="entry">
 				<header class="field-row">
 					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
 					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+					<time property="time" data-type="property" data-prefix=" at " mv-default="[time($startup, 'hours')]" mv-edit-type="inline" mv-editor-type="time" class="type-time"></time>
+					<span property="date_time" data-type="expression" data-show="false" mv-value="datetime(date, time)"></span>
 				</header>
 				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+				<div class="field-row">
+					<meter-discrete property="cigarettes" data-type="property" mv-default="[1]" min="1" max="10" step="1" mv-edit-as="meter" icon="🚬" class="type-number bar"></meter-discrete>
+					<button data-type="action" mv-action="set(entry, group(cigarettes: cigarettes+1, time: time($now)))">Add cigarette</button>
+				</div>
 			</article>
 		</section>
 	</main>
