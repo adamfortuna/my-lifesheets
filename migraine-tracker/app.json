@@ -166,7 +166,7 @@
 				"prefix": "Side of Head ",
 				"allow_multiple": "",
 				"type": "options",
-				"options": "left, right both",
+				"options": "left, right, both",
 				"appearance": ""
 			},
 			"name": "side"
