@@ -41,7 +41,7 @@
 					<th hc-name="b">Average pain</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart19" mv-value="groupBy(pain, readable_datetime(entry.date, 'month'))">
+			<tbody mv-list="chart15" mv-value="groupBy(pain, readable_datetime(entry.date, 'month'))">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[average($items)]</td>
@@ -50,6 +50,25 @@
 		</table>
 	</h-chart>
 	<figcaption>Average pain per month</figcaption></figure>
+				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="pie" x="b">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Side</th>
+					<th hc-name="b">Number of side values</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart17" mv-value="sort(groupBy(side, side), '$value')">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[count($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Number of side values per side value</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
