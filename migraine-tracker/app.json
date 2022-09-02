@@ -193,5 +193,16 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate": "average",
+				"aggregate_of": "pain",
+				"type": "bar",
+				"orientation": "horizontal"
+			}
+		}
+	]
 }
