@@ -1,0 +1,104 @@
+{
+	"app": {
+		"name": "Run Tracker",
+		"slug": "run-tracker",
+		"entry_name": "run",
+		"description": "Run tracker",
+		"private": false,
+		"icon": "🏃🏼‍♂️",
+		"color": "#c269ce",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "runs",
+		"chart_placement": "below"
+	},
+	"temporal": {
+		"times": "",
+		"ranges": ""
+	},
+	"entry": [
+		{
+			"type": "expression",
+			"scope": "entry",
+			"flags": [
+				"temporal",
+				"deletable"
+			],
+			"settings": {
+				"expression": "weekday(date, 'shortname')"
+			},
+			"name": "weekday"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"flags": [
+				"temporal"
+			],
+			"settings": {
+				"type": "date",
+				"default": "[$today]",
+				"formatting": [
+					"b"
+				]
+			},
+			"name": "date"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"type": "text",
+				"appearance": "line",
+				"multiline": true
+			},
+			"name": "notes"
+		},
+		{
+			"type": "property",
+			"scope": "entry",
+			"settings": {
+				"suffix": "k"
+			},
+			"name": "distance"
+		}
+	],
+	"root": [
+		{
+			"type": "action",
+			"scope": "root",
+			"settings": {
+				"visible": "edit",
+				"label": "➕ Add run",
+				"target": "add(entry)",
+				"target_preset": "new",
+				"appearance": "",
+				"set_pairs": [],
+				"filter_pairs": []
+			}
+		},
+		{
+			"type": "expression",
+			"scope": "root",
+			"settings": {
+				"prefix": "Total Distance ",
+				"expression": "sum(distance)",
+				"suffix": "k"
+			}
+		}
+	],
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "line",
+				"aggregate": "sum",
+				"aggregate_of": "distance",
+				"smooth": true,
+				"orientation": "horizontal"
+			}
+		}
+	]
+}
