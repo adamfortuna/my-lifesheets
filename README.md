@@ -1,3 +1,3 @@
 # My lifesheets
 
-- [😀 MyLife](mylife): entry tracker
+- [😀 Smoking Tracker](smoking-tracker):  cigarette tracker
