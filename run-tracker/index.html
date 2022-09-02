@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Run Tracker: run tracker</title>
+	<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text style="font-size: 80px" x="50%" y=".85em" dominant-baseline="middle" text-anchor="middle">🏃🏼‍♂️</text></svg>'>
+	<link rel="stylesheet" href="https://get.mavo.io/mavo.css">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		:root {
+			--accent-color: #c269ce;
+			--icon: "🏃🏼‍♂️";
+		}
+	</style>
+	<link rel="manifest" href="manifest.json">
+	<script type="module" src="https://projects.verou.me/h-chart/src/h-chart.js"></script>
+	<script type="module" src="https://nudeui.com/index.js"></script>
+</head>
+<body mv-app="run-tracker" class="mv-autoedit" mv-storage="https://github.com/adamfortuna/my-lifesheets/run-tracker/data.json">
+	<header>
+		<h1>
+			<span class="app-icon">🏃🏼‍♂️</span>
+			<span class="app-name">Run Tracker</span>
+		</h1>
+		<h2>Run tracker</h2>
+		<div class="mv-bar mv-ui"><a href="#stats" class="mv-button custom stats">Stats</a></div>
+	</header>
+
+	<main class="charts-below">
+		<a id=stats></a>
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-line" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="line" options="smooth">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Month</th>
+					<th hc-name="b">Sum of distance</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart19" mv-value="groupBy(distance, readable_datetime(entry.date, 'month'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[sum($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Sum of distance per month</figcaption></figure>
+			</div>
+		<a id=entries></a>
+			<div class="field-row">
+				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add run</button>
+				<span data-type="expression" data-prefix="Total Distance " data-suffix="k" mv-value="sum(distance)"></span>
+			</div>
+		<section mv-list="entry">
+			<article mv-list-item class="entry">
+				<header class="field-row">
+					<span property="weekday" data-type="expression" mv-value="weekday(date, 'shortname')"></span>
+					<time property="date" data-type="property" mv-default="[$today]" mv-edit-type="inline" mv-editor-type="date" class="bold type-date"></time>
+				</header>
+				<div property="notes" data-type="property" class="appearance-line type-text"></div>
+				<div class="field-row">
+					<span property="distance" data-type="property" data-suffix="k" mv-default="50" mv-editor-type="number" mv-editor-min="1" mv-editor-max="100" mv-editor-step="1" class="type-number"></span>
+				</div>
+			</article>
+		</section>
+	</main>
+
+	<script src="https://get.mavo.io/mavo.js"></script>
+	<script>
+		Mavo.Functions.process_visible = function (value) {
+			value = Mavo.value(value);
+			return ["true", "false", "edit", "read"].includes(value) ? value : Boolean(value);
+		}; 
+	</script>
+</body>
+</html>
