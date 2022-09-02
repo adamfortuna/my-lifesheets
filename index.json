@@ -24,5 +24,19 @@
 		"storage": "",
 		"charts_placement": "",
 		"entries_name": "migraines"
+	},
+	"run-tracker": {
+		"name": "Run Tracker",
+		"slug": "run-tracker",
+		"entry_name": "run",
+		"description": "Run tracker",
+		"private": false,
+		"icon": "🏃🏼‍♂️",
+		"color": "#c269ce",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "runs",
+		"chart_placement": "below"
 	}
 }
