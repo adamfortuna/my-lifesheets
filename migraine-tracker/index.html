@@ -50,25 +50,23 @@
 		</table>
 	</h-chart>
 	<figcaption>Average pain per month</figcaption></figure>
-				<figure data-type="chart" class="chart appearance-stretch type-pie" style="min-width: min(300px, 100vw)">
+				<figure data-type="chart" class="chart appearance-stretch type-table" style="min-width: min(300px, 100vw)">
 	
-	<h-chart type="pie" x="b">
 		<table>
 			<thead>
 				<tr>
 					<th hc-name="a">Side</th>
-					<th hc-name="b">Number of side values</th>
+					<th hc-name="b">Number of migraines</th>
 				</tr>
 			</thead>
-			<tbody mv-list="chart17" mv-value="sort(groupBy(side, side), '$value')">
+			<tbody mv-list="chart17" mv-value="sort(groupBy(entry, side), '$value')">
 				<tr mv-list-item mv-group>
 					<td>[$value]</td>
 					<td>[count($items)]</td>
 				</tr>
 			</tbody>
 		</table>
-	</h-chart>
-	<figcaption>Number of side values per side value</figcaption></figure>
+	<figcaption>Number of migraines per side value</figcaption></figure>
 			</div>
 		<a id=entries></a>
 			<div class="field-row">
