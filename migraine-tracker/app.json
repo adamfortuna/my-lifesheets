@@ -208,9 +208,10 @@
 			"type": "chart",
 			"scope": "charts",
 			"settings": {
-				"aggregate_of": "side",
-				"type": "pie",
-				"group_by": "side"
+				"aggregate_of": "entry",
+				"type": "table",
+				"group_by": "side",
+				"aggregate": "count"
 			}
 		}
 	]
