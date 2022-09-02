@@ -11,5 +11,18 @@
 		"storage": "",
 		"charts_placement": "",
 		"entries_name": "cigarettes"
+	},
+	"migraine-tracker": {
+		"name": "Migraine Tracker",
+		"slug": "migraine-tracker",
+		"entry_name": "migraine",
+		"description": "migraine tracker",
+		"private": false,
+		"icon": "🧠",
+		"color": "#202124",
+		"storageType": "",
+		"storage": "",
+		"charts_placement": "",
+		"entries_name": "migraines"
 	}
 }
