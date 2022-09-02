@@ -112,6 +112,13 @@
 				"label": "Add cigarette",
 				"visible": "true"
 			}
+		},
+		{
+			"type": "expression",
+			"scope": "entry",
+			"settings": {
+				"expression": "cigarettes"
+			}
 		}
 	],
 	"root": [
