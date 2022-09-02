@@ -99,6 +99,11 @@
 				"smooth": true,
 				"orientation": "horizontal"
 			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {}
 		}
 	]
 }
