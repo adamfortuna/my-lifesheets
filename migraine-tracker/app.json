@@ -177,13 +177,11 @@
 			"type": "action",
 			"scope": "root",
 			"settings": {
-				"visible": "edit",
-				"label": "➕ Add migraine",
-				"target": "add(entry)",
 				"target_preset": "new",
-				"appearance": "",
+				"target": "add(entry)",
 				"set_pairs": [],
-				"filter_pairs": []
+				"filter_pairs": [],
+				"label": "Add new Migraine"
 			}
 		}
 	],
