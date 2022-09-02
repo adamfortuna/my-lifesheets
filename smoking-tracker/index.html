@@ -25,12 +25,32 @@
 			<span class="app-name">Smoking Tracker</span>
 		</h1>
 		<h2>Number of cigarettes smoked.</h2>
-		<div class="mv-bar mv-ui"></div>
+		<div class="mv-bar mv-ui"><a href="#entries" class="mv-button custom entries">Entries</a></div>
 	</header>
 
 	<main class="charts-first">
 		<a id=stats></a>
-			
+			<div class="chart-row">
+				<figure data-type="chart" class="chart appearance-stretch type-bar" style="min-width: min(300px, 100vw)">
+	
+	<h-chart type="bar">
+		<table>
+			<thead>
+				<tr>
+					<th hc-name="a">Day</th>
+					<th hc-name="b">Number of cigarettes</th>
+				</tr>
+			</thead>
+			<tbody mv-list="chart17" mv-value="groupBy(entry, readable_datetime(entry.date, 'day'))">
+				<tr mv-list-item mv-group>
+					<td>[$value]</td>
+					<td>[count($items)]</td>
+				</tr>
+			</tbody>
+		</table>
+	</h-chart>
+	<figcaption>Number of cigarettes per day</figcaption></figure>
+			</div>
 		<a id=entries></a>
 			<div class="field-row">
 				<button data-type="action" data-show="edit" mv-action="add(entry)">➕ Add day</button>
