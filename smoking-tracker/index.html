@@ -47,6 +47,7 @@
 				<div class="field-row">
 					<meter-discrete property="cigarettes" data-type="property" mv-default="[1]" min="1" max="10" step="1" mv-edit-as="meter" icon="🚬" class="type-number bar"></meter-discrete>
 					<button data-type="action" mv-action="set(entry, group(cigarettes: cigarettes+1, time: time($now)))">Add cigarette</button>
+					<span data-type="expression" mv-value="cigarettes"></span>
 				</div>
 			</article>
 		</section>
