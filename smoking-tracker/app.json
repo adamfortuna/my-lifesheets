@@ -136,5 +136,15 @@
 			}
 		}
 	],
-	"charts": []
+	"charts": [
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"type": "bar",
+				"group_by": "day",
+				"orientation": "horizontal"
+			}
+		}
+	]
 }
