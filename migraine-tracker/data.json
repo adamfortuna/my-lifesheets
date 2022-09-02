@@ -25,9 +25,10 @@
 			"side": "right"
 		},
 		{
+			"end_time": "13:23",
+			"end_date": "2022-09-02",
 			"date": "2022-09-02",
 			"time": "09:00",
-			"end_date": "[if(end_time, if(end_time < time, date(date + 1 * days()), date))]",
 			"pain": 4,
 			"side": "left"
 		}
