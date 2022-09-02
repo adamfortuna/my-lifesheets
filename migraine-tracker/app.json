@@ -203,6 +203,15 @@
 				"type": "bar",
 				"orientation": "horizontal"
 			}
+		},
+		{
+			"type": "chart",
+			"scope": "charts",
+			"settings": {
+				"aggregate_of": "side",
+				"type": "pie",
+				"group_by": "side"
+			}
 		}
 	]
 }
